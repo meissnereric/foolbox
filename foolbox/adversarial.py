@@ -38,7 +38,7 @@ class Adversarial(object):
             original_image,
             original_class,
             distance=MSE,
-            verbose=False):
+            verbose=True):
 
         self.__model = model
         self.__criterion = criterion
@@ -238,6 +238,7 @@ class Adversarial(object):
 
         self._total_prediction_calls += 1
         predictions = self.__model.predictions(image)
+
         is_adversarial, is_best, distance = self.__is_adversarial(
             image, predictions, in_bounds)
 
